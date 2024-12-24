@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Card, Form, Button, Tabs, Tab } from 'react-bootstrap';
+import AuthContext from '../context/AuthContext';
 
 function AuthForm() {
     const [isLogin, setIsLogin] = useState(true);
@@ -8,6 +9,7 @@ function AuthForm() {
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
     const [password, setPassword] = useState("");
+    const { register, login:authLogin } = useContext(AuthContext);
 
 
     const handleTabChange = (key) => {
@@ -15,13 +17,13 @@ function AuthForm() {
     };
 
     const handleLoginSubmit = (e) => {
-        e.preventDefault();
-        console.log('Login:', login, password);
+      e.preventDefault();
+      authLogin({ login, password });
     };
 
     const handleRegisterSubmit = (e) => {
         e.preventDefault();
-        console.log('Register:', registerLogin, registerEmail, registerPassword);
+       register({ registerLogin, registerEmail, registerPassword });
     };
 
     const handleLoginChange = (e) => {
