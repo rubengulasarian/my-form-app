@@ -1,30 +1,28 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Card, Form, Button, Tabs, Tab } from 'react-bootstrap';
-import AuthContext from '../context/AuthContext';
 
 function AuthForm() {
-  const [isLogin, setIsLogin] = useState(true);
-  const [login, setLogin] = useState("");
-  const [registerLogin, setRegisterLogin] = useState("");
-  const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  const [password, setPassword] = useState("");
-  const { register, login: authLogin } = useContext(AuthContext);
+    const [isLogin, setIsLogin] = useState(true);
+    const [login, setLogin] = useState("");
+    const [registerLogin, setRegisterLogin] = useState("");
+    const [registerEmail, setRegisterEmail] = useState("");
+    const [registerPassword, setRegisterPassword] = useState("");
+    const [password, setPassword] = useState("");
 
 
     const handleTabChange = (key) => {
         setIsLogin(key === 'login');
     };
 
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
-    authLogin({ login, password });
-  };
+    const handleLoginSubmit = (e) => {
+        e.preventDefault();
+        console.log('Login:', login, password);
+    };
 
-  const handleRegisterSubmit = (e) => {
-    e.preventDefault();
-    register({ registerLogin, registerEmail, registerPassword });
-  };
+    const handleRegisterSubmit = (e) => {
+        e.preventDefault();
+        console.log('Register:', registerLogin, registerEmail, registerPassword);
+    };
 
     const handleLoginChange = (e) => {
         setLogin(e.target.value);

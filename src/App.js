@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
-import AuthForm from './components/AuthForm';
+
+import AuthForm from './components/auth';
 
 function App() {
     return (

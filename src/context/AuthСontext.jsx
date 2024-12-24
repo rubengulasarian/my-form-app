@@ -6,28 +6,29 @@ export const AuthContext = createContext(null);
 // Создаем провайдер контекста
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [isAuth, setIsAuth] = useState(false);
+      const [isAuth, setIsAuth] = useState(false);
 
     useEffect(() => {
-        const storedUser = localStorage.getItem('user');
-        if(storedUser){
-        setUser(JSON.parse(storedUser));
-        setIsAuth(true)
+      const storedUser = localStorage.getItem('user');
+      if(storedUser){
+         setUser(JSON.parse(storedUser));
+         setIsAuth(true)
         }
         }, [])
 
+
     const register = (userData) => {
         // Mock registration logic (we will replace this later)
-        localStorage.setItem('user', JSON.stringify(userData));
-        setUser(userData);
-        setIsAuth(true);
+           localStorage.setItem('user', JSON.stringify(userData));
+          setUser(userData);
+          setIsAuth(true);
     };
 
     const login = (userData) => {
-        // Mock login logic (we will replace this later)
-        localStorage.setItem('user', JSON.stringify(userData));
-        setUser(userData);
-        setIsAuth(true);
+          // Mock login logic (we will replace this later)
+           localStorage.setItem('user', JSON.stringify(userData));
+           setUser(userData);
+           setIsAuth(true);
     };
 
     const logout = () => {
