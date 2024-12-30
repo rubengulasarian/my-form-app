@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Card, Form, Button, Tabs, Tab, Alert } from 'react-bootstrap';
-import AuthContext from '../context/AuthContext';
+import AuthContext from '../authcontext/Authcontext';
 
 function AuthForm() {
     const [isLogin, setIsLogin] = useState(true);
