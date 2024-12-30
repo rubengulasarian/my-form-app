@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Card, Form, Button, Tabs, Tab } from 'react-bootstrap';
+import { Card, Form, Button, Tabs, Tab, Alert } from 'react-bootstrap';
 import AuthContext from '../context/AuthContext';
 
 function AuthForm() {
@@ -9,7 +9,7 @@ function AuthForm() {
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
     const [password, setPassword] = useState("");
-    const { register, login:authLogin } = useContext(AuthContext);
+     const { register, login:authLogin, isLoading, error } = useContext(AuthContext);
 
 
     const handleTabChange = (key) => {
@@ -50,6 +50,8 @@ function AuthForm() {
     return (
         <Card style={{ width: '400px', margin: '20px auto' }}>
             <Card.Body>
+             {isLoading && <p>Loading...</p>}
+                {error && <Alert variant="danger">{error}</Alert>}
                 <Tabs
                     activeKey={isLogin ? 'login' : 'register'}
                     onSelect={handleTabChange}
