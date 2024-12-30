@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const { Sequelize, DataTypes } = require('sequelize');
 const config = require('./config/config.js');
-const initModels = require('./models');
+const initModels = require('./models/user.js');
 const app = express();
 const port = 3000;
 
