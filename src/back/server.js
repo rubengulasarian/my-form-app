@@ -1,14 +1,15 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const { Sequelize, DataTypes } = require('sequelize');
-const config = require('./config/config.js');
-const initModels = require('./models/user.js').default;
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import { Sequelize } from 'sequelize';
+import config from './config/config.js';
+import initModels from './models/user.js';
+
 const app = express();
 const port = 3000;
 
 const sequelize = new Sequelize(config.development);
-const { User } = initModels(sequelize);
+const User = initModels(sequelize);
 
 app.use(cors());
 app.use(bodyParser.json());
